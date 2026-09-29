@@ -3,25 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SLV Residency | Hotel & Rooms</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <meta
+    name="description"
+    content="SLV Residency — comfortable and affordable rooms near RTC Bus Stand, Dhone."
+  />
+
+  <title>SLV Residency | Comfortable Stays in Dhone</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
     :root {
-      --primary: #0e3b66;
-      --primary-dark: #07233f;
-      --accent: #2563eb;
-      --whatsapp: #25D366;
-      --whatsapp-dark: #1ebc57;
-      --mail: #ea4335;
-      --location: #ea4335;
-      --text: #1f2937;
-      --text-muted: #64748b;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --border: #e2e8f0;
-      --radius: 14px;
+      --ink: #17221f;
+      --muted: #707b76;
+      --cream: #f5f2ec;
+      --cream-dark: #ebe5da;
+      --white: #ffffff;
+      --navy: #123d4a;
+      --navy-dark: #0a2933;
+      --terracotta: #b66c4d;
+      --gold: #c29a5c;
+      --line: rgba(23, 34, 31, 0.12);
+      --shadow: 0 24px 70px rgba(13, 38, 42, 0.13);
+      --radius: 22px;
+      --max-width: 1180px;
     }
 
     * {
@@ -30,862 +42,1904 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: var(--text);
-      background-color: var(--bg);
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* Dynamic Animations */
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    img {
+      width: 100%;
+      display: block;
     }
 
-    .pulse-btn {
-      animation: pulse 2s infinite;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    button,
+    input,
+    textarea {
+      font: inherit;
     }
 
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Navbar */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      transition: box-shadow 0.3s ease;
-    }
-    
-    header.scrolled {
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .nav-container {
-      max-width: 1200px;
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
       margin: 0 auto;
-      padding: 0.85rem 1.5rem;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--terracotta);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--terracotta);
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .section-heading.center .eyebrow {
+      justify-content: center;
+    }
+
+    .section-title {
+      margin-top: 14px;
+      color: var(--navy-dark);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      font-weight: 600;
+      line-height: 1.05;
+    }
+
+    .section-description {
+      max-width: 600px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--terracotta);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #9f583d;
+      transform: translateY(-3px);
+    }
+
+    .btn-dark {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: var(--navy-dark);
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border-color: rgba(255, 255, 255, 0.35);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    /* TOP BAR */
+
+    .topbar {
+      background: var(--navy-dark);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.72rem;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 36px;
+      gap: 20px;
+    }
+
+    .topbar a {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    /* NAVIGATION */
+
+    .site-header {
+      position: absolute;
+      top: 36px;
+      left: 0;
+      width: 100%;
+      z-index: 20;
+      color: var(--white);
+      transition: 0.3s ease;
+    }
+
+    .site-header.scrolled {
+      position: fixed;
+      top: 0;
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--ink);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(15px);
+    }
+
+    .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      min-height: 82px;
+      gap: 30px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      text-decoration: none;
-      transition: transform 0.3s ease;
-    }
-
-    .brand:hover {
-      transform: scale(1.02);
     }
 
     .brand img {
-      height: 44px;
       width: 44px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background-color: #ffffff;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 8px;
     }
 
-    .brand-title {
+    .brand-name {
+      font-family: "Playfair Display", serif;
       font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--primary);
-      letter-spacing: -0.5px;
-    }
-
-    .nav-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    /* Hero Section with Parallax */
-    .hero {
-      background: linear-gradient(135deg, rgba(14, 59, 102, 0.92), rgba(7, 35, 63, 0.95)),
-                  url('IMG_20251012_214857.jpg') center/cover no-repeat;
-      background-attachment: fixed; 
-      color: white;
-      padding: 7rem 1.5rem; 
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "SLV RESIDENCY";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: clamp(3rem, 8vw, 10rem); 
-      font-weight: 800;
-      color: rgba(255, 255, 255, 0.06); 
-      white-space: nowrap;
-      z-index: 0;
-      pointer-events: none; 
-      letter-spacing: 5px;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translate(-50%, -50%); }
-      50% { transform: translate(-50%, -55%); }
-      100% { transform: translate(-50%, -50%); }
-    }
-
-    .hero-content {
-      max-width: 780px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1; 
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.875rem;
       font-weight: 600;
-      margin-bottom: 1.25rem;
+      line-height: 1;
     }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1rem;
+    .brand-subtitle {
+      margin-top: 4px;
+      color: currentColor;
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      opacity: 0.65;
+      text-transform: uppercase;
     }
 
-    .hero p {
-      font-size: 1.1rem;
-      color: #cbd5e1;
-      margin-bottom: 2rem;
-    }
-
-    .hero-buttons {
+    .nav-links {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    /* Common Buttons */
-    .btn {
-      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 22px;
-      border-radius: 10px;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      font-size: 0.73rem;
       font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
+      letter-spacing: 0.06em;
+      opacity: 0.88;
+      transition: 0.2s ease;
     }
 
-    .btn-whatsapp {
-      background-color: var(--whatsapp);
-      color: white;
-    }
-    .btn-whatsapp:hover {
-      background-color: var(--whatsapp-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(37, 211, 102, 0.3);
+    .nav-links a:hover {
+      color: var(--terracotta);
     }
 
-    .btn-email {
-      background-color: var(--mail);
-      color: white;
-    }
-    .btn-email:hover {
-      background-color: #d9372a;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(234, 67, 53, 0.3);
+    .nav-book {
+      padding: 11px 16px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
     }
 
-    .btn-call {
-      background-color: var(--accent);
-      color: white;
-    }
-    .btn-call:hover {
-      background-color: #1d4ed8;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
-    }
-
-    .btn-location {
-      background-color: var(--location);
-      color: white;
-    }
-    .btn-location:hover {
-      background-color: #d9372a;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(234, 67, 53, 0.3);
-    }
-
-    .btn-outline {
+    .menu-button {
+      display: none;
+      border: 0;
       background: transparent;
-      color: white;
-      border: 2px solid rgba(255, 255, 255, 0.4);
-    }
-    .btn-outline:hover {
-      border-color: white;
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-3px);
+      color: currentColor;
+      cursor: pointer;
+      font-size: 1.7rem;
     }
 
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3.5rem 1.5rem;
-    }
+    /* HERO */
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .section-header h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary-dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .section-header p {
-      color: var(--text-muted);
-      font-size: 1rem;
-    }
-
-    /* Key Highlights */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .feature-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    }
-
-    .feature-card .icon {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      display: inline-block;
-      transition: transform 0.3s ease;
-    }
-
-    .feature-card:hover .icon {
-      transform: scale(1.2) rotate(5deg);
-    }
-
-    .feature-card h4 {
-      font-size: 1.05rem;
-      color: var(--primary);
-      margin-bottom: 0.25rem;
-    }
-
-    .feature-card p {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-    }
-
-    /* Rooms Grid */
-    .rooms-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.75rem;
-    }
-
-    .room-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-    }
-
-    .room-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .room-image-wrapper {
+    .hero {
       position: relative;
-      height: 220px;
+      min-height: 760px;
+      display: flex;
+      align-items: center;
       overflow: hidden;
-      background-color: #e2e8f0;
+      background: var(--navy-dark);
+      color: var(--white);
     }
 
-    .room-image-wrapper img {
+    .hero-background {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-background img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-    
-    .room-card:hover .room-image-wrapper img {
-      transform: scale(1.08); 
+      object-position: center;
     }
 
-    .room-badge {
+    .hero-background::after {
+      content: "";
       position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(14, 59, 102, 0.85);
-      color: white;
-      padding: 4px 10px;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(4, 24, 30, 0.88) 0%, rgba(4, 24, 30, 0.52) 48%, rgba(4, 24, 30, 0.18) 100%),
+        linear-gradient(0deg, rgba(4, 24, 30, 0.54), transparent 45%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(650px, 100%);
+      padding-top: 120px;
+    }
+
+    .hero .eyebrow {
+      color: #e1b779;
+    }
+
+    .hero .eyebrow::before {
+      background: #e1b779;
+    }
+
+    .hero h1 {
+      max-width: 670px;
+      margin-top: 20px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.3rem, 7vw, 6.7rem);
+      font-weight: 600;
+      line-height: 0.98;
+    }
+
+    .hero h1 span {
+      color: #e2b979;
+    }
+
+    .hero-description {
+      max-width: 520px;
+      margin: 25px 0 32px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 28px;
+      color: rgba(255, 255, 255, 0.7);
       font-size: 0.75rem;
+    }
+
+    .availability-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #65c98b;
+      box-shadow: 0 0 0 5px rgba(101, 201, 139, 0.12);
+    }
+
+    /* BOOKING CARD */
+
+    .booking-card {
+      position: absolute;
+      right: max(20px, calc((100vw - var(--max-width)) / 2));
+      bottom: 42px;
+      z-index: 3;
+      width: 330px;
+      padding: 26px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .booking-card small {
+      color: var(--terracotta);
+      font-size: 0.68rem;
       font-weight: 700;
-      border-radius: 6px;
-      backdrop-filter: blur(4px);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .booking-card h3 {
+      margin: 8px 0 18px;
+      color: var(--navy-dark);
+      font-family: "Playfair Display", serif;
+      font-size: 1.65rem;
+      line-height: 1.1;
+    }
+
+    .booking-details {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .booking-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .booking-icon {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--cream);
+      color: var(--terracotta);
+      font-size: 1rem;
+    }
+
+    .booking-detail strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.77rem;
+    }
+
+    .booking-detail span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.68rem;
+    }
+
+    .booking-card .btn {
+      width: 100%;
+    }
+
+    /* TRUST STRIP */
+
+    .trust-strip {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .trust-item {
+      padding: 26px 20px;
+      border-right: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .trust-item:last-child {
+      border-right: 0;
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+    }
+
+    .trust-item span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.67rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ROOMS */
+
+    .rooms-section {
+      background: var(--white);
+    }
+
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .room-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      transition: 0.3s ease;
+    }
+
+    .room-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .room-image {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .room-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: 0.6s ease;
+    }
+
+    .room-card:hover .room-image img {
+      transform: scale(1.07);
+    }
+
+    .room-label {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(18, 61, 74, 0.93);
+      color: var(--white);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     .room-content {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
+      padding: 25px;
     }
 
     .room-content h3 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: 1.65rem;
     }
 
-    .room-desc {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 1.25rem;
+    .room-content p {
+      min-height: 75px;
+      margin: 10px 0 20px;
+      color: var(--muted);
+      font-size: 0.8rem;
     }
 
-    .pricing-box {
-      background: #f1f5f9;
-      padding: 0.85rem 1rem;
-      border-radius: 8px;
-      margin-bottom: 1.25rem;
-    }
-
-    .price-row {
+    .room-price {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 3px 0;
+      gap: 12px;
+      padding: 13px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .price-label {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--text);
+    .room-price span {
+      color: var(--muted);
+      font-size: 0.73rem;
     }
 
-    .price-value {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--accent);
+    .room-price strong {
+      color: var(--terracotta);
+      font-size: 0.95rem;
     }
 
     .room-actions {
-      margin-top: auto;
       display: flex;
-      gap: 10px;
-      align-items: flex-start;
+      gap: 8px;
+      margin-top: 18px;
     }
 
-    .room-actions a {
+    .room-actions .btn {
       flex: 1;
+      min-height: 43px;
+      padding: 0 10px;
+      font-size: 0.66rem;
+    }
+
+    /* FACILITIES */
+
+    .facilities-section {
+      background: var(--cream);
+    }
+
+    .facility-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .facility-intro .section-title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+    }
+
+    .facility-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .facility-item {
+      min-height: 190px;
+      padding: 28px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      transition: 0.25s ease;
+    }
+
+    .facility-item:hover {
+      background: var(--white);
+    }
+
+    .facility-number {
+      display: block;
+      margin-bottom: 28px;
+      color: var(--terracotta);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .facility-item h3 {
+      margin-bottom: 7px;
+      color: var(--navy);
+      font-size: 0.98rem;
+    }
+
+    .facility-item p {
+      color: var(--muted);
+      font-size: 0.77rem;
+    }
+
+    /* ABOUT */
+
+    .about-section {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 85px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+      height: 590px;
+    }
+
+    .about-image img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    .about-badge {
+      position: absolute;
+      right: -28px;
+      bottom: 28px;
+      width: 150px;
+      height: 150px;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--navy-dark);
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      line-height: 1.1;
       text-align: center;
-      font-size: 0.85rem;
-      padding: 10px 12px;
-      max-height: 44px;
     }
 
-    /* Direct Contact Banner & Notes */
-    .contact-banner {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem 1.5rem;
-      margin-top: 3.5rem;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    .about-section .section-title {
+      color: var(--white);
     }
 
-    .contact-banner h3 {
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
+    .about-section .section-description {
+      color: rgba(255, 255, 255, 0.7);
     }
 
-    .contact-banner p {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
+    .about-points {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 28px 0 32px;
     }
 
-    .contact-links {
+    .about-point {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 9px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.78rem;
+    }
+
+    .about-point::before {
+      content: "✓";
+      color: #e0b574;
+      font-weight: 700;
+    }
+
+    /* GALLERY */
+
+    .gallery-section {
+      background: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr 0.75fr;
+      grid-template-rows: 250px 250px;
       gap: 14px;
     }
 
-    .policy-note {
-      margin-top: 2rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
-      color: #dc2626; 
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    /* Rating Section */
-    .rating-section {
-      background: #ffffff;
-      border: 1px solid var(--border);
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
       border-radius: 16px;
-      padding: 2.5rem 1.5rem;
-      margin-top: 2rem;
+      background: var(--cream-dark);
+    }
+
+    .gallery-item:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .gallery-item img {
+      height: 100%;
+      object-fit: cover;
+      transition: 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      left: 14px;
+      padding: 10px 12px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--navy);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* CTA */
+
+    .cta-section {
+      padding: 90px 0;
+      background:
+        linear-gradient(rgba(10, 41, 51, 0.88), rgba(10, 41, 51, 0.88)),
+        url("room-suite.jpeg") center / cover;
+      color: var(--white);
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
 
-    .rating-section h3 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
+    .cta-section .eyebrow {
+      justify-content: center;
+      color: #e1b779;
     }
 
-    .star-rating {
-      font-size: 3rem;
-      color: #cbd5e1;
-      cursor: pointer;
-      display: inline-flex;
-      gap: 5px;
-      margin: 1rem 0;
+    .cta-section .eyebrow::before {
+      background: #e1b779;
     }
 
-    .star {
-      transition: color 0.3s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    
-    .star:hover {
-      transform: scale(1.2);
-    }
-
-    .star.active {
-      color: #f59e0b; 
+    .cta-section h2 {
+      max-width: 720px;
+      margin: 16px auto;
+      color: var(--white);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.05;
     }
 
-    .google-review-link {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: 0.95rem;
-      color: var(--primary);
-      text-decoration: underline;
+    .cta-section p {
+      max-width: 530px;
+      margin: 0 auto 28px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.92rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* CONTACT */
+
+    .contact-section {
+      background: var(--cream);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 22px;
+      margin-top: 32px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 14px;
+    }
+
+    .contact-icon {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--terracotta);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-top: 3px;
+      color: var(--navy);
+      font-size: 0.82rem;
       font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    
-    .google-review-link:hover {
-      color: var(--accent);
     }
 
-    /* Footer */
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding: 30px;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      color: var(--navy);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      outline: 0;
+      padding: 13px 14px;
+      background: #fcfbf8;
+      color: var(--ink);
+      font-size: 0.8rem;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--terracotta);
+    }
+
+    .form-field textarea {
+      min-height: 125px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      grid-column: 1 / -1;
+      margin-top: 6px;
+    }
+
+    /* FOOTER */
+
     footer {
-      background: var(--primary-dark);
-      color: #94a3b8;
-      text-align: center;
-      padding: 2rem 1.5rem;
-      font-size: 0.875rem;
+      padding: 30px 0;
+      background: var(--navy-dark);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.75rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
     }
 
     footer strong {
-      color: white;
+      color: var(--white);
     }
 
-    /* =========================================
-       MOBILE RESPONSIVE STYLES (NEW)
-       ========================================= */
-    @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: column;
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    /* FLOATING ACTIONS */
+
+    .floating-actions {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 50;
+      display: grid;
+      gap: 10px;
+    }
+
+    .floating-button {
+      display: grid;
+      place-items: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      color: var(--white);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+      font-size: 1.1rem;
+      transition: 0.25s ease;
+    }
+
+    .floating-button:hover {
+      transform: translateY(-3px);
+    }
+
+    .whatsapp {
+      background: #20bd60;
+    }
+
+    .call {
+      background: var(--navy);
+    }
+
+    .back-top {
+      background: var(--white);
+      color: var(--navy);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ANIMATION */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1050px) {
+      .booking-card {
+        right: 20px;
+      }
+
+      .facility-layout,
+      .about-layout,
+      .contact-layout {
+        gap: 45px;
+      }
+
+      .nav-links {
         gap: 15px;
-        padding: 1rem;
       }
-      
-      .brand-title {
-        font-size: 1.2rem;
+    }
+
+    @media (max-width: 850px) {
+      .site-header {
+        top: 36px;
       }
 
-      .nav-actions {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
+      .menu-button {
+        display: block;
       }
 
-      .nav-actions .btn {
-        padding: 8px 14px;
-        font-size: 0.85rem;
-        flex: 1;
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        right: 20px;
+        left: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 15px;
+        border-radius: 16px;
+        background: var(--white);
+        color: var(--ink);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 11px;
+      }
+
+      .nav-book {
         text-align: center;
       }
 
       .hero {
-        padding: 4rem 1rem;
+        min-height: 850px;
+      }
+
+      .hero-content {
+        padding-top: 140px;
+      }
+
+      .booking-card {
+        right: 20px;
+        bottom: 28px;
+        left: 20px;
+        width: auto;
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-item:nth-child(2) {
+        border-right: 0;
+      }
+
+      .trust-item:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .room-grid,
+      .facility-layout,
+      .about-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        height: 480px;
+      }
+
+      .facility-intro {
+        max-width: 650px;
+      }
+
+      .contact-form {
+        max-width: 720px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(var(--max-width), calc(100% - 28px));
+      }
+
+      .topbar {
+        display: none;
+      }
+
+      .site-header {
+        top: 0;
+      }
+
+      .nav {
+        min-height: 70px;
+      }
+
+      .hero {
+        min-height: 850px;
+      }
+
+      .hero-content {
+        padding-top: 115px;
       }
 
       .hero h1 {
-        font-size: 1.8rem;
+        font-size: 3.6rem;
       }
 
-      .hero::before {
-        font-size: clamp(2rem, 15vw, 4rem); /* Fixes watermark clipping on mobile */
+      .hero-description {
+        font-size: 0.88rem;
       }
 
-      .rooms-grid {
-        grid-template-columns: 1fr; /* Forces 1 room per row on small phones */
+      .hero-actions {
+        display: grid;
       }
 
-      .room-actions {
-        flex-direction: column; /* Stacks WhatsApp and Call buttons safely */
-        gap: 8px;
-      }
-
-      .room-actions a {
-        width: 100%; /* Makes buttons full width on mobile */
-        max-height: none;
-      }
-
-      .contact-links {
-        flex-direction: column;
-      }
-
-      .contact-links a {
+      .hero-actions .btn {
         width: 100%;
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .section-title {
+        font-size: 2.7rem;
+      }
+
+      .trust-item {
+        padding: 20px 10px;
+      }
+
+      .room-grid {
+        gap: 18px;
+      }
+
+      .room-image {
+        height: 235px;
+      }
+
+      .room-content p {
+        min-height: auto;
+      }
+
+      .facility-list {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        height: 350px;
+      }
+
+      .about-badge {
+        right: 14px;
+        bottom: 14px;
+        width: 115px;
+        height: 115px;
+        font-size: 0.95rem;
+      }
+
+      .about-points {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 210px 160px 160px;
+      }
+
+      .gallery-item:first-child {
+        grid-column: 1 / -1;
+        grid-row: auto;
+      }
+
+      .gallery-caption {
+        font-size: 0.57rem;
+      }
+
+      .contact-form {
+        grid-template-columns: 1fr;
+        padding: 21px;
+      }
+
+      .form-field.full,
+      .contact-form .btn {
+        grid-column: auto;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .floating-actions {
+        right: 12px;
+        bottom: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
       }
     }
   </style>
 </head>
-<body>
 
-  <!-- Navigation -->
-  <header id="main-header">
-    <div class="nav-container">
-      <a href="#" class="brand">
-        <!-- Main Logo -->
-        <img src="logo.png" alt="SLV Logo" />
-        <span class="brand-title">SLV Residency</span>
+<body id="top">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Comfortable stays in the heart of Dhone</span>
+      <span>
+        Call / WhatsApp:
+        <a href="tel:+919866230616">+91 9866230616</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+
+      <a href="#top" class="brand" aria-label="SLV Residency home">
+        <img src="logo.png" alt="SLV Residency logo" />
+
+        <div>
+          <div class="brand-name">SLV Residency</div>
+          <div class="brand-subtitle">Stay · Comfort · Convenience</div>
+        </div>
       </a>
-      <div class="nav-actions">
-        <a href="https://share.google/IG41iVVeBzUuoO1bv" target="_blank" class="btn btn-location">
-          📍 Location
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#rooms">Rooms</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+
+        <a
+          class="nav-book"
+          href="https://wa.me/919866230616?text=Hello%20SLV%20Residency,%20I%20would%20like%20to%20book%20a%20room."
+          target="_blank"
+          rel="noopener"
+        >
+          Book a Room
         </a>
-        <a href="tel:+919866230616" class="btn btn-call">
-          📞 Call
-        </a>
-        <a href="https://wa.me/919866230616?text=Hello%20SLV%20Residency,%20I%20want%20to%20inquire%20about%20booking%20a%20room." target="_blank" class="btn btn-whatsapp">
-          WhatsApp
-        </a>
-      </div>
+      </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero reveal">
-    <div class="hero-content">
-      <div class="badge">📍 Prime Spot Near RTC Bus Stand</div>
-      <h1>Comfortable, Affordable Lodging in Dhone</h1>
-      <p>Convenient stay with single, deluxe, and spacious suite accommodations just moments away from the transit center.</p>
-      <div class="hero-buttons">
-        <a href="https://wa.me/919866230616?text=Hello%20SLV%20Residency,%20I%20want%20to%20book%20a%20room." target="_blank" class="btn btn-whatsapp pulse-btn">
-          💬 Book via WhatsApp
-        </a>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=slvresidency35@gmail.com&su=Room%20Booking%20Inquiry" target="_blank" class="btn btn-email">
-          ✉️ Send Email
-        </a>
-        <a href="tel:+919866230616" class="btn btn-outline">
-          📞 Call 9866230616
-        </a>
-      </div>
-    </div>
-  </section>
+  <main>
 
-  <!-- Main Content -->
-  <main class="container">
-    
-    <!-- Key Highlights -->
-    <section class="features reveal">
-      <div class="feature-card">
-        <div class="icon">🚏</div>
-        <h4>Near RTC Bus Stand</h4>
-        <p>Walkable distance from transit for seamless travel.</p>
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+      <div class="hero-background">
+        <img src="Building.jpeg" alt="Beautiful suite room at SLV Residency" />
       </div>
-      <div class="feature-card">
-        <div class="icon">❄️</div>
-        <h4>AC & Non-AC Available</h4>
-        <p>Flexible cooling choices tailored to your budget.</p>
+
+      <div class="container">
+        <div class="hero-content reveal">
+          <div class="eyebrow">Welcome to SLV Residency</div>
+
+          <h1>
+            A better place to
+            <span>stay.</span>
+          </h1>
+
+          <p class="hero-description">
+            Comfortable, clean and affordable accommodation near the RTC Bus Stand
+            in Dhone. Choose from single, deluxe and suite rooms for every kind of journey.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#rooms">
+              Explore Rooms →
+            </a>
+
+            <a
+              class="btn btn-outline"
+              href="https://wa.me/919866230616?text=Hello%20SLV%20Residency,%20I%20would%20like%20to%20check%20room%20availability."
+              target="_blank"
+              rel="noopener"
+            >
+              Check Availability
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <span class="availability-dot"></span>
+            AC and Non-AC room options available
+          </div>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="icon">🧼</div>
-        <h4>Clean & Sanitized</h4>
-        <p>Hygienic rooms with clean attached bathrooms.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">🕒</div>
-        <h4>24/7 Front Desk</h4>
-        <p>Always available to assist with inquiries & check-in.</p>
+
+      <div class="booking-card reveal">
+        <small>Plan your stay</small>
+        <h3>Everything you need, close by.</h3>
+
+        <div class="booking-details">
+          <div class="booking-detail">
+            <div class="booking-icon">⌖</div>
+            <div>
+              <strong>Prime location</strong>
+              <span>Near RTC Bus Stand, Dhone</span>
+            </div>
+          </div>
+
+          <div class="booking-detail">
+            <div class="booking-icon">⌂</div>
+            <div>
+              <strong>Comfortable rooms</strong>
+              <span>Single, Deluxe and Suite options</span>
+            </div>
+          </div>
+
+          <div class="booking-detail">
+            <div class="booking-icon">☎</div>
+            <div>
+              <strong>Easy booking</strong>
+              <span>Call or WhatsApp us directly</span>
+            </div>
+          </div>
+        </div>
+
+        <a
+          class="btn btn-dark"
+          href="tel:+919866230616"
+        >
+          Call +91 9866230616
+        </a>
       </div>
     </section>
 
-    <!-- Rooms Section -->
-    <div class="section-header reveal">
-      <h2>Select Your Room</h2>
-      <p>Transparent rates with AC and Non-AC room options</p>
-    </div>
+    <!-- TRUST STRIP -->
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <strong>3</strong>
+          <span>Room Categories</span>
+        </div>
 
-    <section class="rooms-grid">
-      <!-- 1. Single Room -->
-      <article class="room-card reveal">
-        <div class="room-image-wrapper">
-          <img src="single-room.jpeg" alt="SLV Residency Single Room" />
-          <span class="room-badge">Budget Choice</span>
+        <div class="trust-item">
+          <strong>AC / Non-AC</strong>
+          <span>Flexible Options</span>
         </div>
-        <div class="room-content">
-          <h3>Single Room</h3>
-          <p class="room-desc">Designed for solo travelers and short halts seeking an affordable, clean stay.</p>
-          <div class="pricing-box">
-            <div class="price-row">
-              <span class="price-label">Price per day</span>
-              <span class="price-value">₹800</span>
-            </div>
-          </div>
-          <div class="room-actions">
-            <a href="https://wa.me/919866230616?text=Hi%20SLV%20Residency,%20I%20am%20interested%20in%20the%20Single%20Room%20(₹800)." target="_blank" class="btn btn-whatsapp">
-              WhatsApp
-            </a>
-            <a href="tel:+919866230616" class="btn btn-call">
-              Call
-            </a>
-          </div>
-        </div>
-      </article>
 
-      <!-- 2. Deluxe Room -->
-      <article class="room-card reveal">
-        <div class="room-image-wrapper">
-          <img src="deluxe-room.jpeg" alt="SLV Residency Deluxe Room" />
-          <span class="room-badge">Popular</span>
+        <div class="trust-item">
+          <strong>24/7</strong>
+          <span>Guest Assistance</span>
         </div>
-        <div class="room-content">
-          <h3>Deluxe Room</h3>
-          <p class="room-desc">Ideal for couples or business travelers requiring extra space and optional climate control.</p>
-          <div class="pricing-box">
-            <div class="price-row">
-              <span class="price-label">Without AC</span>
-              <span class="price-value">₹1,000</span>
-            </div>
-            <div class="price-row">
-              <span class="price-label">With AC</span>
-              <span class="price-value">₹1,500</span>
-            </div>
-          </div>
-          <div class="room-actions">
-            <a href="https://wa.me/919866230616?text=Hi%20SLV%20Residency,%20I%20am%20interested%20in%20the%20Deluxe%20Room." target="_blank" class="btn btn-whatsapp">
-              WhatsApp
-            </a>
-            <a href="tel:+919866230616" class="btn btn-call">
-              Call
-            </a>
-          </div>
-        </div>
-      </article>
 
-      <!-- 3. Suite Room -->
-      <article class="room-card reveal">
-        <div class="room-image-wrapper">
-          <img src="room-suite.jpeg" alt="SLV Residency Suite Room" />
-          <span class="room-badge">Family Special</span>
+        <div class="trust-item">
+          <strong>Dhone</strong>
+          <span>Convenient Location</span>
         </div>
-        <div class="room-content">
-          <h3>Suite Room</h3>
-          <p class="room-desc">Features two double beds, air conditioning, and attached washroom for large families or groups.</p>
-          <div class="pricing-box">
-            <div class="price-row">
-              <span class="price-label">Without AC</span>
-              <span class="price-value">₹2,000</span>
-            </div>
-            <div class="price-row">
-              <span class="price-label">With AC</span>
-              <span class="price-value">₹2,500</span>
-            </div>
-          </div>
-          <div class="room-actions">
-            <a href="https://wa.me/919866230616?text=Hi%20SLV%20Residency,%20I%20am%20interested%20in%20the%20Suite%20Room." target="_blank" class="btn btn-whatsapp">
-              WhatsApp
-            </a>
-            <a href="tel:+919866230616" class="btn btn-call">
-              Call
-            </a>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <!-- Direct Contact Banner -->
-    <section class="contact-banner reveal">
-      <h3>Ready to Reserve Your Stay?</h3>
-      <p>Contact our desk instantly via WhatsApp, Email, or by giving us a Call for instant confirmations and reservations.</p>
-      <div class="contact-links">
-        <a href="tel:+919866230616" class="btn btn-call">
-          📞 Call: 9866230616
-        </a>
-        <a href="https://wa.me/919866230616?text=Hello%20SLV%20Residency,%20I%20would%20like%20to%20make%20a%20reservation." target="_blank" class="btn btn-whatsapp pulse-btn">
-          💬 WhatsApp
-        </a>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=slvresidency35@gmail.com&su=Reservation%20Inquiry" target="_blank" class="btn btn-email">
-          ✉️ slvresidency35@gmail.com
-        </a>
-      </div>
-      
-      <!-- Warning Note -->
-      <div class="policy-note">
-        ⚠️ Note: Consumption of alcohol and cigarette are strictly Prohibited
       </div>
     </section>
 
-    <!-- Interactive Rating Section -->
-    <section class="rating-section reveal">
-      <h3>Rate Your Experience</h3>
-      <p>How was your stay or website experience?</p>
-      
-      <div class="star-rating">
-        <span class="star" data-value="1">★</span>
-        <span class="star" data-value="2">★</span>
-        <span class="star" data-value="3">★</span>
-        <span class="star" data-value="4">★</span>
-        <span class="star" data-value="5">★</span>
+    <!-- ROOMS -->
+    <section class="section rooms-section" id="rooms">
+      <div class="container">
+
+        <div class="section-heading center reveal">
+          <div class="eyebrow">Choose your room</div>
+          <h2 class="section-title">Comfort for every kind of stay.</h2>
+          <p class="section-description">
+            Select the room that fits your travel needs, group size and budget.
+            Contact us directly for availability.
+          </p>
+        </div>
+
+        <div class="room-grid">
+
+          <!-- SINGLE ROOM -->
+          <article class="room-card reveal">
+            <div class="room-image">
+              <img src="single-room.jpeg" alt="Single room at SLV Residency" />
+              <span class="room-label">Budget Choice</span>
+            </div>
+
+            <div class="room-content">
+              <h3>Single Room</h3>
+
+              <p>
+                A practical and clean room for solo travellers, short stays and
+                business visits.
+              </p>
+
+              <div class="room-price">
+                <span>Price per day</span>
+                <strong>₹800</strong>
+              </div>
+
+              <div class="room-actions">
+                <a
+                  class="btn btn-primary"
+                  href="https://wa.me/919866230616?text=Hi%20SLV%20Residency,%20I%20am%20interested%20in%20the%20Single%20Room%20priced%20at%20%E2%82%B9800."
+                  target="_blank"
+                  rel="noopener"
+                >
+                  WhatsApp
+                </a>
+
+                <a class="btn btn-dark" href="tel:+919866230616">
+                  Call
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DELUXE ROOM -->
+          <article class="room-card reveal">
+            <div class="room-image">
+              <img src="deluxe-room.jpeg" alt="Deluxe room at SLV Residency" />
+              <span class="room-label">Most Popular</span>
+            </div>
+
+            <div class="room-content">
+              <h3>Deluxe Room</h3>
+
+              <p>
+                A comfortable room for couples, families and business travellers
+                with flexible cooling options.
+              </p>
+
+              <div class="room-price">
+                <span>Without AC / With AC</span>
+                <strong>₹1,000 / ₹1,500</strong>
+              </div>
+
+              <div class="room-actions">
+                <a
+                  class="btn btn-primary"
+                  href="https://wa.me/919866230616?text=Hi%20SLV%20Residency,%20I%20am%20interested%20in%20the%20Deluxe%20Room."
+                  target="_blank"
+                  rel="noopener"
+                >
+                  WhatsApp
+                </a>
+
+                <a class="btn btn-dark" href="tel:+919866230616">
+                  Call
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- SUITE ROOM -->
+          <article class="room-card reveal">
+            <div class="room-image">
+              <img src="room-suite.jpeg" alt="Suite room at SLV Residency" />
+              <span class="room-label">Family Choice</span>
+            </div>
+
+            <div class="room-content">
+              <h3>Suite Room</h3>
+
+              <p>
+                A spacious option with two double beds, attached washroom and
+                air-conditioning availability.
+              </p>
+
+              <div class="room-price">
+                <span>Without AC / With AC</span>
+                <strong>₹2,000 / ₹2,500</strong>
+              </div>
+
+              <div class="room-actions">
+                <a
+                  class="btn btn-primary"
+                  href="https://wa.me/919866230616?text=Hi%20SLV%20Residency,%20I%20am%20interested%20in%20the%20Suite%20Room."
+                  target="_blank"
+                  rel="noopener"
+                >
+                  WhatsApp
+                </a>
+
+                <a class="btn btn-dark" href="tel:+919866230616">
+                  Call
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
       </div>
-      
-      <p id="rating-message" style="display: none; color: #16a34a; font-weight: 700; margin-bottom: 10px; transition: opacity 0.5s ease;"></p>
-      
-      <br>
-      <a href="https://share.google/IG41iVVeBzUuoO1bv" target="_blank" class="google-review-link">
-        Prefer to leave a public review? Rate us on Google Maps!
-      </a>
     </section>
+
+    <!-- FACILITIES -->
+    <section class="section facilities-section" id="facilities">
+      <div class="container facility-layout">
+
+        <div class="facility-intro reveal">
+          <div class="eyebrow">Stay with ease</div>
+
+          <h2 class="section-title">
+            Simple comforts. Thoughtful convenience.
+          </h2>
+
+          <p class="section-description">
+            We focus on the things that matter during a stay: a convenient
+            location, clean rooms, comfortable facilities and easy communication.
+          </p>
+
+          <a class="btn btn-dark" href="#contact" style="margin-top: 28px;">
+            Contact Us →
+          </a>
+        </div>
+
+        <div class="facility-list reveal">
+          <article class="facility-item">
+            <span class="facility-number">01</span>
+            <h3>Prime Location</h3>
+            <p>
+              Stay close to the RTC Bus Stand for convenient local travel.
+            </p>
+          </article>
+
+          <article class="facility-item">
+            <span class="facility-number">02</span>
+            <h3>AC & Non-AC Options</h3>
+            <p>
+              Choose an option that matches your comfort and budget.
+            </p>
+          </article>
+
+          <article class="facility-item">
+            <span class="facility-number">03</span>
+            <h3>Wi-fi 24/7</h3>
+            <p>
+              with the speed of 50Mbps.
+            </p>
+          </article>
+
+          <article class="facility-item">
+            <span class="facility-number">04</span>
+            <h3>Direct Assistance</h3>
+            <p>
+              Contact us directly for availability and reservations.
+            </p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about-section" id="about">
+      <div class="container about-layout">
+
+        <div class="about-image reveal">
+          <img src="Building1.jpeg" alt="Interior of a deluxe room" />
+
+          <div class="about-badge">
+            Your comfortable stop in Dhone
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="eyebrow">About SLV Residency</div>
+
+          <h2 class="section-title">
+            A welcoming place to pause, rest and continue.
+          </h2>
+
+          <p class="section-description">
+            SLV Residency offers practical accommodation in Dhone for guests
+            looking for a comfortable stay near the RTC Bus Stand.
+          </p>
+
+          <p class="section-description">
+            With different room categories and AC / Non-AC options, you can
+            choose a stay that works for your needs and budget.
+          </p>
+
+          <div class="about-points">
+            <div class="about-point">Near RTC Bus Stand</div>
+            <div class="about-point">Single, Deluxe and Suite rooms</div>
+            <div class="about-point">AC and Non-AC options</div>
+            <div class="about-point">Attached bathroom facilities</div>
+            <div class="about-point">Direct WhatsApp booking</div>
+            <div class="about-point">Phone enquiries available</div>
+          </div>
+
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/919866230616?text=Hello%20SLV%20Residency,%20I%20would%20like%20to%20know%20more%20about%20your%20rooms."
+            target="_blank"
+            rel="noopener"
+          >
+            Ask About Your Stay →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery-section" id="gallery">
+      <div class="container">
+
+        <div class="section-heading center reveal">
+          <div class="eyebrow">A glimpse inside</div>
+          <h2 class="section-title">See where you will stay.</h2>
+          <p class="section-description">
+            Explore a few views of the rooms and interiors at SLV Residency.
+          </p>
+        </div>
+
+        <div class="gallery-grid reveal">
+          <div class="gallery-item">
+            <img src="room-suite.jpeg" alt="Suite room" />
+            <div class="gallery-caption">Suite Room</div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="deluxe-room.jpeg" alt="Deluxe room" />
+            <div class="gallery-caption">Deluxe Room</div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="single-room.jpeg" alt="Single room" />
+            <div class="gallery-caption">Single Room</div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="deluxe-room.jpeg" alt="Room interior" />
+            <div class="gallery-caption">Room Interior</div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="room-suite.jpeg" alt="Spacious room" />
+            <div class="gallery-caption">Spacious Stay</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container reveal">
+        <div class="eyebrow">Ready when you are</div>
+
+        <h2>Make your next stay simple and comfortable.</h2>
+
+        <p>
+          Contact SLV Residency directly to check availability, room prices and
+          booking details.
+        </p>
+
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="tel:+919866230616">
+            Call Us
+          </a>
+
+          <a
+            class="btn btn-outline"
+            href="https://wa.me/919866230616?text=Hello%20SLV%20Residency,%20I%20would%20like%20to%20make%20a%20reservation."
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-layout">
+
+        <div class="reveal">
+          <div class="eyebrow">Get in touch</div>
+
+          <h2 class="section-title">
+            Let’s plan your stay.
+          </h2>
+
+          <p class="section-description">
+            Send us your requirements or contact us directly for room
+            availability and reservations.
+          </p>
+
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">⌖</div>
+              <div>
+                <span>Location</span>
+                <strong>Near RTC Bus Stand, Dhone, Andhra Pradesh</strong>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <span>Phone</span>
+                <strong>+91 9866230616</strong>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">✉</div>
+              <div>
+                <span>Email</span>
+                <strong>slvresidency35@gmail.com</strong>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">💬</div>
+              <div>
+                <span>Booking</span>
+                <strong>Call or WhatsApp for reservations</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+
+          <div class="form-field">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" required placeholder="Your name" />
+          </div>
+
+          <div class="form-field">
+            <label for="phone">Mobile Number</label>
+            <input id="phone" name="phone" required placeholder="Your mobile number" />
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" />
+          </div>
+
+          <div class="form-field">
+            <label for="room">Room Type</label>
+            <input id="room" name="room" placeholder="Single / Deluxe / Suite" />
+          </div>
+
+          <div class="form-field full">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Tell us about your dates and requirements..."
+            ></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">
+            Send Enquiry via WhatsApp →
+          </button>
+        </form>
+
+      </div>
+    </section>
+
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
-    <p><strong>SLV Residency</strong> — Near RTC Bus Stand, Dhone</p>
-    <p style="margin-top: 6px;">Call / WhatsApp: +91 9866230616 | Email: slvresidency35@gmail.com</p>
+    <div class="container footer-inner">
+      <div>
+        <strong>SLV Residency</strong>
+        · Near RTC Bus Stand, Dhone
+      </div>
+
+      <div class="footer-links">
+        <a href="#rooms">Rooms</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
   </footer>
 
-  <!-- Interactive Scripts -->
+  <!-- FLOATING BUTTONS -->
+  <div class="floating-actions">
+    <a
+      class="floating-button whatsapp"
+      href="https://wa.me/919866230616?text=Hello%20SLV%20Residency,%20I%20want%20to%20book%20a%20room."
+      target="_blank"
+      rel="noopener"
+      aria-label="WhatsApp"
+    >
+      💬
+    </a>
+
+    <a
+      class="floating-button call"
+      href="tel:+919866230616"
+      aria-label="Call"
+    >
+      📞
+    </a>
+
+    <a
+      class="floating-button back-top"
+      id="backTop"
+      href="#top"
+      aria-label="Back to top"
+    >
+      ↑
+    </a>
+  </div>
+
   <script>
-    // Star Rating Logic
-    const stars = document.querySelectorAll('.star');
-    const messageElement = document.getElementById('rating-message');
+    const header = document.getElementById("siteHeader");
+    const backTop = document.getElementById("backTop");
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+    const contactForm = document.getElementById("contactForm");
 
-    stars.forEach(star => {
-      star.addEventListener('click', function() {
-        const ratingValue = this.getAttribute('data-value');
-        
-        // Add bouncy animation to stars when clicked
-        stars.forEach(s => {
-          s.style.transform = 'scale(0.8)';
-          setTimeout(() => {
-            s.style.transform = '';
-            if (s.getAttribute('data-value') <= ratingValue) {
-              s.classList.add('active');
-            } else {
-              s.classList.remove('active');
-            }
-          }, 150);
-        });
+    window.addEventListener(
+      "scroll",
+      () => {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+        backTop.classList.toggle("show", window.scrollY > 500);
+      },
+      { passive: true }
+    );
 
-        // Show thank you message with fade-in effect
-        setTimeout(() => {
-          messageElement.style.display = 'block';
-          messageElement.style.opacity = '0';
-          setTimeout(() => messageElement.style.opacity = '1', 50);
-          messageElement.innerHTML = `Thank you! You rated us ${ratingValue} out of 5 stars.`;
-        }, 200);
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "☰";
       });
     });
 
-    // Scroll Reveal Animation Logic
-    function reveal() {
-      const reveals = document.querySelectorAll('.reveal');
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        const elementVisible = 100;
-
-        if (elementTop < windowHeight - elementVisible) {
-          reveals[i].classList.add('active');
-        }
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
       }
-    }
+    );
 
-    // Header Shadow on Scroll
-    const header = document.getElementById('main-header');
-    function updateHeader() {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    }
+    document.querySelectorAll(".reveal").forEach((element) => {
+      revealObserver.observe(element);
+    });
 
-    window.addEventListener('scroll', reveal);
-    window.addEventListener('scroll', updateHeader);
-    
-    // Trigger animations that should load immediately
-    reveal();
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(contactForm);
+
+      const name = formData.get("name") || "";
+      const phone = formData.get("phone") || "";
+      const email = formData.get("email") || "";
+      const room = formData.get("room") || "";
+      const message = formData.get("message") || "";
+
+      const whatsappMessage = `
+Hello SLV Residency,
+
+Name: ${name}
+Mobile: ${phone}
+Email: ${email}
+Room Type: ${room}
+Message: ${message}
+      `.trim();
+
+      const whatsappUrl =
+        "https://wa.me/919866230616?text=" +
+        encodeURIComponent(whatsappMessage);
+
+      window.open(whatsappUrl, "_blank", "noopener");
+    });
   </script>
 </body>
 </html>
