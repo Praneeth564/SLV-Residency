@@ -272,6 +272,10 @@
       color: var(--terracotta);
     }
 
+    .nav-links a.active {
+      color: var(--gold);
+    }
+
     .nav-book {
       padding: 11px 16px;
       border: 1px solid currentColor;
@@ -911,9 +915,83 @@
       border-color: var(--terracotta);
     }
 
+    .form-field input.input-error,
+    .form-field textarea.input-error {
+      border-color: #c0392b;
+      background: #fff8f7;
+    }
+
+    .form-error {
+      display: none;
+      color: #c0392b;
+      font-size: 0.68rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
     .form-field textarea {
       min-height: 125px;
       resize: vertical;
+    }
+
+    .room-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+    }
+
+    .room-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .room-option label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 10px 8px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fcfbf8;
+      color: var(--navy);
+      cursor: pointer;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-align: center;
+      transition: 0.2s ease;
+    }
+
+    .room-option label:hover {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+
+    .room-option input:checked + label {
+      border-color: var(--terracotta);
+      background: var(--terracotta);
+      color: var(--white);
+    }
+
+    .room-option input:focus-visible + label {
+      outline: 2px solid var(--terracotta);
+      outline-offset: 2px;
+    }
+
+    .room-options-error {
+      display: none;
+      color: #c0392b;
+      font-size: 0.68rem;
+      font-weight: 600;
+    }
+
+    .room-options-error.show {
+      display: block;
     }
 
     .contact-form .btn {
@@ -1216,6 +1294,10 @@
         padding: 21px;
       }
 
+      .room-options {
+        grid-template-columns: 1fr;
+      }
+
       .form-field.full,
       .contact-form .btn {
         grid-column: auto;
@@ -1249,6 +1331,265 @@
         transform: none;
       }
     }
+
+
+    /* MOBILE + INTERACTION ENHANCEMENTS */
+    html { overflow-x: hidden; }
+    body { overflow-x: hidden; }
+
+    .site-header {
+      transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+    }
+
+    .nav-links a,
+    .btn,
+    .floating-button,
+    .room-card,
+    .facility-card,
+    .gallery-item {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-links a,
+    .btn,
+    .floating-button {
+      touch-action: manipulation;
+    }
+
+    .room-card,
+    .facility-card,
+    .gallery-item {
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    .room-card:hover,
+    .facility-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 45px rgba(13, 38, 42, .14);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+    }
+
+    .btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.32);
+      transform: scale(0);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .btn.ripple::after {
+      animation: buttonRipple .55s ease-out;
+    }
+
+    @keyframes buttonRipple {
+      from { transform: scale(0); opacity: .75; }
+      to { transform: scale(18); opacity: 0; }
+    }
+
+    .hero-background img {
+      transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .hero:hover .hero-background img {
+      transform: scale(1.025);
+    }
+
+    .availability-dot {
+      animation: availabilityPulse 1.8s infinite;
+    }
+
+    @keyframes availabilityPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(32,189,96,.25); }
+      50% { box-shadow: 0 0 0 8px rgba(32,189,96,0); }
+    }
+
+    .floating-button {
+      transition: transform .25s ease, opacity .25s ease, box-shadow .25s ease;
+    }
+
+    .floating-button:hover {
+      transform: translateY(-3px) scale(1.04);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      font-size: 16px;
+    }
+
+    /* Phones: prioritize readable type, comfortable tap targets and no horizontal overflow. */
+    @media (max-width: 850px) {
+      .site-header {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .nav-links {
+        max-height: calc(100vh - 92px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .nav-links a {
+        min-height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .nav-book {
+        justify-content: center !important;
+      }
+
+      .hero-content {
+        padding-bottom: 20px;
+      }
+
+      .booking-card {
+        position: absolute;
+      }
+
+      .room-card,
+      .facility-card,
+      .gallery-item {
+        transform: none !important;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(var(--max-width), calc(100% - 24px));
+      }
+
+      .brand-name {
+        font-size: 1rem;
+      }
+
+      .brand-subtitle {
+        font-size: .58rem;
+      }
+
+      .brand img {
+        max-width: 44px;
+        height: auto;
+      }
+
+      .menu-button {
+        min-width: 46px;
+        min-height: 46px;
+        font-size: 1.35rem;
+      }
+
+      .hero {
+        min-height: 820px;
+      }
+
+      .hero-content {
+        padding-top: 105px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.65rem, 13vw, 3.6rem);
+        line-height: .98;
+      }
+
+      .hero-description {
+        max-width: 100%;
+        font-size: .95rem;
+        line-height: 1.65;
+      }
+
+      .hero-actions {
+        gap: 10px;
+      }
+
+      .hero-actions .btn,
+      .contact-form .btn {
+        min-height: 50px;
+      }
+
+      .booking-card {
+        left: 12px;
+        right: 12px;
+        bottom: 16px;
+        width: auto;
+        padding: 20px;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section {
+        padding: 62px 0;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 10vw, 2.7rem);
+        line-height: 1.05;
+      }
+
+      .section-description {
+        font-size: .94rem;
+        line-height: 1.65;
+      }
+
+      .room-image {
+        height: 220px;
+      }
+
+      .gallery-grid {
+        gap: 8px;
+        grid-template-rows: 190px 135px 135px;
+      }
+
+      .gallery-caption {
+        font-size: .62rem;
+        padding: 10px;
+      }
+
+      .contact-form {
+        padding: 18px;
+        gap: 14px;
+      }
+
+      .room-option {
+        min-height: 52px;
+      }
+
+      .floating-actions {
+        right: 10px;
+        bottom: max(10px, env(safe-area-inset-bottom));
+        gap: 8px;
+      }
+
+      .floating-button {
+        width: 46px;
+        height: 46px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .brand-subtitle { display: none; }
+      .brand-name { font-size: .94rem; }
+      .hero { min-height: 800px; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .trust-item { border-right: 0 !important; border-bottom: 1px solid var(--line); }
+      .trust-item:last-child { border-bottom: 0; }
+      .booking-card h3 { font-size: 1.15rem; }
+    }
+
   </style>
 </head>
 
@@ -1785,17 +2126,78 @@
 
           <div class="form-field">
             <label for="phone">Mobile Number</label>
-            <input id="phone" name="phone" required placeholder="Your mobile number" />
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              inputmode="numeric"
+              autocomplete="tel"
+              required
+              maxlength="10"
+              pattern="[6-9][0-9]{9}"
+              title="Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9."
+              placeholder="10-digit mobile number"
+            />
+            <small class="form-error" id="phoneError">
+              Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.
+            </small>
           </div>
 
           <div class="form-field">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" />
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              maxlength="254"
+              pattern="[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+"
+              title="Enter a valid email address, for example name@example.com."
+              placeholder="you@example.com"
+            />
+            <small class="form-error" id="emailError">
+              Enter a valid email address, for example name@example.com.
+            </small>
           </div>
 
           <div class="form-field">
-            <label for="room">Room Type</label>
-            <input id="room" name="room" placeholder="Single / Deluxe / Suite" />
+            <label>Room Type</label>
+            <div class="room-options" role="radiogroup" aria-label="Select room type">
+              <div class="room-option">
+                <input
+                  type="radio"
+                  id="roomSingle"
+                  name="room"
+                  value="Single Room"
+                  required
+                />
+                <label for="roomSingle">Single Room</label>
+              </div>
+
+              <div class="room-option">
+                <input
+                  type="radio"
+                  id="roomDeluxe"
+                  name="room"
+                  value="Deluxe Room"
+                />
+                <label for="roomDeluxe">Deluxe Room</label>
+              </div>
+
+              <div class="room-option">
+                <input
+                  type="radio"
+                  id="roomSuite"
+                  name="room"
+                  value="Suite Room"
+                />
+                <label for="roomSuite">Suite Room</label>
+              </div>
+            </div>
+            <small class="room-options-error" id="roomError">
+              Please select a room type.
+            </small>
           </div>
 
           <div class="form-field full">
@@ -1870,31 +2272,59 @@
     const menuButton = document.getElementById("menuButton");
     const navLinks = document.getElementById("navLinks");
     const contactForm = document.getElementById("contactForm");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    window.addEventListener(
-      "scroll",
-      () => {
-        header.classList.toggle("scrolled", window.scrollY > 50);
-        backTop.classList.toggle("show", window.scrollY > 500);
-      },
-      { passive: true }
-    );
+    // Smooth scroll state + active navigation link.
+    const updateScrollUI = () => {
+      const y = window.scrollY;
+      header.classList.toggle("scrolled", y > 50);
+      backTop.classList.toggle("show", y > 500);
+
+      const sections = document.querySelectorAll("main section[id]");
+      let current = "home";
+      sections.forEach((section) => {
+        if (y >= section.offsetTop - 160) current = section.id;
+      });
+      navLinks.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+      });
+    };
+
+    window.addEventListener("scroll", updateScrollUI, { passive: true });
+    updateScrollUI();
+
+    // Mobile navigation with Escape-to-close and outside-click support.
+    const closeMenu = () => {
+      navLinks.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "☰";
+    };
 
     menuButton.addEventListener("click", () => {
       const isOpen = navLinks.classList.toggle("open");
-
       menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      menuButton.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
       menuButton.textContent = isOpen ? "×" : "☰";
     });
 
     navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.textContent = "☰";
-      });
+      link.addEventListener("click", closeMenu);
     });
 
+    document.addEventListener("click", (event) => {
+      if (window.innerWidth <= 850 &&
+          navLinks.classList.contains("open") &&
+          !navLinks.contains(event.target) &&
+          !menuButton.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+
+    // Reveal sections as they enter the viewport.
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -1904,25 +2334,123 @@
           }
         });
       },
-      {
-        threshold: 0.12
-      }
+      { threshold: 0.12 }
     );
 
     document.querySelectorAll(".reveal").forEach((element) => {
       revealObserver.observe(element);
     });
 
+    // Lightweight button ripple feedback.
+    if (!prefersReducedMotion) {
+      document.querySelectorAll(".btn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const rect = button.getBoundingClientRect();
+          button.style.setProperty("--ripple-x", `${event.clientX - rect.left}px`);
+          button.style.setProperty("--ripple-y", `${event.clientY - rect.top}px`);
+          button.classList.remove("ripple");
+          void button.offsetWidth;
+          button.classList.add("ripple");
+        });
+      });
+    }
+
+    // Gentle hero parallax on desktop; disabled on touch/reduced-motion devices.
+    if (!prefersReducedMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      const heroImage = document.querySelector(".hero-background img");
+      if (heroImage) {
+        window.addEventListener("scroll", () => {
+          const offset = Math.min(window.scrollY * 0.08, 45);
+          heroImage.style.transform = `scale(1.02) translateY(${offset}px)`;
+        }, { passive: true });
+      }
+    }
+
+    // Contact form validation
+    const phoneInput = document.getElementById("phone");
+    const emailInput = document.getElementById("email");
+    const phoneError = document.getElementById("phoneError");
+    const emailError = document.getElementById("emailError");
+
+    // Indian mobile number: exactly 10 digits and starts with 6, 7, 8 or 9.
+    const mobileRegex = /^[6-9]\d{9}$/;
+
+    // Practical email validation: local part + @ + domain + at least one dot.
+    const emailRegex =
+      /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$/;
+
+    function setFieldError(input, errorElement, isInvalid) {
+      input.classList.toggle("input-error", isInvalid);
+      errorElement.classList.toggle("show", isInvalid);
+      input.setAttribute("aria-invalid", isInvalid ? "true" : "false");
+    }
+
+    function validatePhone() {
+      const phone = phoneInput.value.trim();
+      const valid = mobileRegex.test(phone);
+      setFieldError(phoneInput, phoneError, !valid);
+      return valid;
+    }
+
+    function validateEmail() {
+      const email = emailInput.value.trim();
+      const valid = emailRegex.test(email);
+      setFieldError(emailInput, emailError, !valid);
+      return valid;
+    }
+
+    phoneInput.addEventListener("input", () => {
+      // Keep only digits and enforce the 10-digit limit.
+      phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
+      if (phoneInput.value) validatePhone();
+    });
+
+    emailInput.addEventListener("input", () => {
+      if (emailInput.value) validateEmail();
+    });
+
+    phoneInput.addEventListener("blur", validatePhone);
+    emailInput.addEventListener("blur", validateEmail);
+
     contactForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
+      // Layer 1: native HTML validation (required/type/pattern).
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      // Layer 2: explicit JavaScript regex validation.
+      const phoneValid = validatePhone();
+      const emailValid = validateEmail();
+
+      const selectedRoom = contactForm.querySelector(
+        'input[name="room"]:checked'
+      );
+      const roomError = document.getElementById("roomError");
+
+      if (roomError) {
+        roomError.classList.toggle("show", !selectedRoom);
+      }
+
+      if (!phoneValid || !emailValid || !selectedRoom) {
+        if (!phoneValid) phoneInput.focus();
+        else if (!emailValid) emailInput.focus();
+        else {
+          const firstRoom = document.getElementById("roomSingle");
+          if (firstRoom) firstRoom.focus();
+        }
+        return;
+      }
+
       const formData = new FormData(contactForm);
 
-      const name = formData.get("name") || "";
-      const phone = formData.get("phone") || "";
-      const email = formData.get("email") || "";
-      const room = formData.get("room") || "";
-      const message = formData.get("message") || "";
+      const name = (formData.get("name") || "").trim();
+      const phone = (formData.get("phone") || "").trim();
+      const email = (formData.get("email") || "").trim();
+      const room = (formData.get("room") || "").trim();
+      const message = (formData.get("message") || "").trim();
 
       const whatsappMessage = `
 Hello SLV Residency,
